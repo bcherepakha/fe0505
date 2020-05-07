@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    min-height: 100vh;
+    border: 0;
+    border-collapse: collapse;
+}
+
+.presentation {
+    /* 270px / 900px = 0.3 */
+    /* width: 30vw; */
+    width: 30%;
+    min-width: 270px;
+    background: #000;
+
+    color: #fff;
+    text-align: center;
+}
+
+.blockquote
+{
+    background: white;
+    min-height: 113px;
+}
+
+.blockquote blockquote {
+    padding: 30px 40px 35px 80px;
+}
+
+.resume {
+    padding: 30px 40px 35px 80px;
+}

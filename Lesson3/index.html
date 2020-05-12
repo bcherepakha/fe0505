@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .block {
+            background: #d7d7f5;
+            color: #3e3d3d;
+            text-align: center;
+            font-size: 8vw;
+
+            width: 500px;
+
+            /* margin: 10px; */
+            /* margin: 20px 10px; */
+            /* margin: 10px 20px 30px; */
+            /* margin: 10px 20px 30px 40px; */
+            /* margin-top: 20px; */
+            /* margin-right: auto; */
+            /* margin-left: auto; */
+
+            margin: 20px auto;
+            border: 40px solid #d1a6fb;
+            padding: 40px;
+
+            box-sizing: content-box;
+        }
+
+        .block--two {
+            box-sizing: border-box;
+        }
+
+        .card {
+            position: relative;
+
+            display: block;
+
+            width: 100%;
+            max-width: 533px;
+
+            margin: 20px auto;
+            padding: 242px 76px 80px 81px;
+
+            box-sizing: border-box;
+
+            border-radius: 22px;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            /* background: #000000; */
+            /* opacity: 0.41; */
+            background: rgba(0, 0, 0, .41);
+            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.05);
+
+            z-index: 2;
+        }
+
+        .card::after {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: 3;
+
+            background: linear-gradient(179.62deg, rgba(255, 255, 255, 0.0001) -172.92%, rgba(115, 115, 115, 0.0001) -23.18%, rgba(47, 47, 47, 0.0001) 49.87%, #000000 99.74%);
+            opacity: 0.5;
+            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .card__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: 1;
+        }
+
+        .card__body {
+            position: relative;
+
+            color: #FFFFFF;
+
+            z-index: 4;
+        }
+
+        .card__title {
+            font-style: normal;
+            font-weight: 900;
+            font-size: 49px;
+            line-height: 0.9;
+            text-align: center;
+            margin-bottom: 39px;
+        }
+
+        .card__description {
+            font-size: 18px;
+            line-height: 28px;
+
+            color: #F9F9F9;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card__price {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 53px;
+            line-height: 44px;
+            text-align: center;
+            margin-bottom: 105px;
+        }
+
+        .card__actions {
+            text-align: center;
+        }
+
+        .card__add {
+            display: inline-block;
+
+            background: #EC6732;
+            border: 0;
+            border-radius: 100px;
+
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+
+            text-align: center;
+
+            min-width: 244px;
+            padding: 23px;
+
+            color: #FFF;
+            cursor: pointer;
+        }
+
+        .card__add:focus {
+            outline: none;
+
+            box-shadow: 0 0 6px 2px rgb(251, 241, 237);
+        }
+
+        .card__add:active {
+            transform: scale(0.9);
+        }
+
+        .article {
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid;
+            border-radius: 20px;
+            padding: 20px;
+
+            box-sizing: border-box;
+
+            font-size: 0;
+            line-height: 0;
+
+            margin: 20px auto;
+            /* overflow: hidden; */
+        }
+
+        .article::after {
+            content: '';
+
+            display: inline-block;
+            width: 100%;
+
+            clear: both;
+        }
+
+        .article__text {
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .article__image {
+            float: right;
+            width: 200px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        Block
+    </div>
+    <div class="block block--two">
+        Block
+    </div>
+
+    <div class="card">
+        <img class="card__image" src="cardImage.jpg" alt="">
+        <div class="card__body">
+            <div class="card__title">
+                Adidas Jacket
+            </div>
+            <div class="card__description">
+                Men’s originals Coach Jacket Men’s originals Coach Jacket
+                Men’s originals Coach Jacket Men’s originals Coach Jacket
+            </div>
+            <div class="card__price">
+                $100
+            </div>
+            <div class="card__actions">
+                <button class="card__add">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="article">
+        <img class="article__image" src="https://source.unsplash.com/300x300/?nature,water" alt="">
+        <span class="article__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa reprehenderit dolores pariatur voluptatibus quis hic eius, necessitatibus enim in omnis voluptatem nam, consectetur delectus, fuga iure animi! Quo, at nulla!</span>
+        <span class="article__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa reprehenderit dolores pariatur voluptatibus quis hic eius, necessitatibus enim in omnis voluptatem nam, consectetur delectus, fuga iure animi! Quo, at nulla!</span>
+    </div>
+</body>
+</html>

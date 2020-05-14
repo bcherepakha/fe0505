@@ -1,9 +1,23 @@
+@font-face {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: local('Merriweather Black'), local('Merriweather-Black'), url(https://fonts.gstatic.com/s/merriweather/v21/u-4n0qyriQwlOrhSvowK_l52_wFZWMf6hPvhPQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    margin: 0;
+}
+
 .logo {
     display: block;
 }
 
 .address-link {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #000;
 }
@@ -18,9 +32,9 @@
     text-decoration: underline;
 }
 
-.address-link:not(:last-child) {
+/* .address-link:not(:last-child) {
     margin-right: 40px;
-}
+} */
 
 /* .address-link + .address-link {
     margin-left: 40px;
@@ -30,6 +44,7 @@
     width: 10px;
     height: 18px; /* only for IE */
     fill: #005FA3;
+    margin-right: 15px;
 }
 
 .address-link:hover .phone-link-img {
@@ -45,6 +60,7 @@
     height: 17px;
 
     background: url('data:image/svg+xml,%3Csvg viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8.5 0C3.80558 0 0 3.80558 0 8.5C0 13.1944 3.80558 17 8.5 17C13.1944 17 17 13.1944 17 8.5C16.994 3.80809 13.1919 0.00601673 8.5 0ZM8.86465 16.2525V14.7574C8.86465 14.556 8.70138 14.3928 8.5 14.3928C8.29862 14.3928 8.13535 14.556 8.13535 14.7574V16.2525C4.13691 16.0616 0.938428 12.8631 0.747533 8.86465H2.2426C2.44398 8.86465 2.60725 8.70138 2.60725 8.5C2.60725 8.29862 2.44398 8.13535 2.2426 8.13535H0.747533C0.938428 4.13691 4.13691 0.938428 8.13535 0.747533V2.2426C8.13535 2.44398 8.29862 2.60725 8.5 2.60725C8.70138 2.60725 8.86465 2.44398 8.86465 2.2426V0.747533C12.8631 0.938428 16.0616 4.13691 16.2525 8.13535H14.7574C14.556 8.13535 14.3928 8.29862 14.3928 8.5C14.3928 8.70138 14.556 8.86465 14.7574 8.86465H14.761H16.2561C16.0651 12.8644 12.8645 16.0634 8.86465 16.2525Z" fill="%23005FA3"/%3E%3Cpath d="M12.3471 11.8913L8.86465 8.35049V4.67117C8.86465 4.46979 8.70137 4.30652 8.5 4.30652C8.29862 4.30652 8.13535 4.46979 8.13535 4.67117V8.5C8.13576 8.59568 8.17373 8.68734 8.24109 8.75526L11.8256 12.4018C11.9666 12.5458 12.1976 12.5482 12.3416 12.4072C12.4856 12.2662 12.488 12.0352 12.3471 11.8913Z" fill="%23005FA3"/%3E%3C/svg%3E%0A') center center no-repeat;
+    margin-right: 15px;
 }
 
 .working-time:hover::before {
@@ -55,12 +71,63 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+
+    display: flex;
+    justify-content: space-between;
 }
 
-.nav-list li {
-    display: inline-block;
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.nav-list li:not(:last-child) {
-    margin-right: 20px;
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    max-width: 1116px;
+    padding: 22px 22px 31px;
+
+    box-sizing: border-box;
+}
+
+.logo {
+    font-family: Merriweather, serif;
+
+    flex-basis: 260px;
+    font-size: 36px;
+    font-weight: 900;
+
+    color: #005FA3;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover {
+    text-decoration: underline;
+}
+
+.logo img {
+    margin-right: 30px;
+}
+
+.header-data {
+    flex-basis: auto;
+    flex-grow: 1;
+
+    max-width: 680px;
+}
+
+address {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
 }

@@ -1,0 +1,123 @@
+.switch {
+    position: relative;
+    display: inline-block;
+
+    --height: 70px;
+    --tumbler-width: 18px;
+    --background-color: #655466;
+
+    width: 142px;
+    height: calc(5px + var(--height));
+
+    box-sizing: border-box;
+
+    background: linear-gradient(180deg, #F4F4F4 0%, #EBEBEB 3.89%, #E9E9E9 6.73%, #E1E1E1 9.69%, #DBDBDB 88.64%, #DDDDDD 92.5%, #D8D8D8 96.36%, #D1D1D1 100%);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25), inset 0px 0px 14px #ADADAD;
+    border-radius: 40px;
+
+    cursor: pointer;
+}
+
+.switch__input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+}
+
+.switch__input:checked + .switch__body {
+    --background-color: #A220C3;
+}
+
+.switch__input:checked + .switch__body .switch__inner {
+    left: calc(100% - var(--height) - 1px);
+}
+
+.switch__input:focus + .switch__body {
+    box-shadow: 0 0 2px 2px var(--background-color);
+}
+
+.switch__body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 40px;
+
+    transition: box-shadow .6s linear 0s;
+}
+
+.switch__body::before {
+    content: '';
+
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+
+    background: var(--background-color);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+
+    transition: background .6s linear 0s;
+}
+
+.switch__inner {
+    position: absolute;
+    top: -1px;
+    left: 0px;
+
+    width: var(--height);
+    height: var(--height);
+
+    border-radius: 50%;
+
+    background: #FFFFFF;
+    box-shadow: -4px 4px 4px #949494, inset 0px -6px 9px #949494;
+
+    transition: left .6s linear 0s;
+}
+
+.switch__inner::before {
+    content: '';
+
+    position: absolute;
+
+    top: 9px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border-radius: 50%;
+
+    background: #E4E4E4;
+    box-shadow: inset 3px 3px 9px rgba(87, 87, 87, 0.25);
+}
+
+.switch__img {
+    position: absolute;
+
+    --tumbler-height: calc(24 * var(--tumbler-width) / 22);
+
+    width: var(--tumbler-width);
+    height: var(--tumbler-height);
+
+    /* top: calc((var(--height) - var(--tumbler-height)) / 2 ); */
+    /* left: calc((var(--height) - var(--tumbler-width)) / 2 ); */
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    fill: none;
+    stroke: var(--background-color);
+
+    transition: stroke .6s linear 0s;
+}

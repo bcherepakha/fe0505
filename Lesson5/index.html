@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markup 1</title>
+    <style>
+        .section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .section__wrapper {
+            display: block;
+
+            flex: 0 0 100%;
+            max-width: 1112px;
+
+            padding: 20px 0;
+
+            box-sizing: border-box;
+
+            background: #EBEBEB;
+        }
+
+        .service-list {
+            display: flex;
+
+            align-items: stretch;
+
+            flex-wrap: wrap;
+
+            padding: 0;
+            margin: 0;
+
+            list-style: none;
+        }
+
+        .service-list__item {
+            flex-basis: 30%;
+            flex-grow: 1;
+            flex-shrink: 0;
+
+            margin: 0 30px 15px 0;
+
+            background: #005FA3;
+
+            position: relative;
+
+            cursor: pointer;
+        }
+
+        .service-list__item-mask,
+        .service-list__item-mask::before,
+        .service-list__item-mask::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .service-list__item-mask::before {
+            content: '';
+
+            opacity: 1;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+
+            transition: opacity .6s ease-in;
+        }
+
+        .service-list__item-mask::after {
+            content: '';
+
+            opacity: 0;
+            background: linear-gradient(0deg, rgba(0, 95, 163, 0.65), rgba(0, 95, 163, 0.65));
+
+            transition: opacity .6s ease-in;
+        }
+
+        .service-list__item:hover .service-list__item-mask::before {
+            opacity: 0;
+        }
+
+        .service-list__item:hover .service-list__item-mask::after {
+            opacity: 1;
+        }
+
+        .service-list__item-image {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .service-list__item-title {
+            position: absolute;
+            left: 0;
+            bottom: 25px;
+
+            font-weight: 900;
+            font-size: 24px;
+            line-height: 30px;
+
+            color: #FFFFFF;
+
+            padding: 0 48px;
+
+            min-height: 100px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        /* .service-list__item:nth-child(1) {
+            margin-left: 0;
+        } */
+
+        .service-list__item:nth-child(3n) {
+            margin-right: 0;
+        }
+
+        /* screen < 1000px */
+        @media (max-width: 1000px) {
+            .service-list__item {
+                flex-basis: 35%;
+            }
+
+            .service-list__item:nth-child(3n) {
+                margin-right: 30px;
+            }
+
+            .service-list__item:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        /* screen > 800px */
+        /* @media (min-width: 800px) {
+
+        } */
+
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <div class="section__wrapper">
+            <ul class="service-list">
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img
+                        class="service-list__item-image"
+                        src="cardImage.jpg"
+                        srcset="
+                        https://source.unsplash.com/300x300/?nature,water 300w,
+                        cardImage.jpg 350w,
+                        https://source.unsplash.com/500x500/?nature,water 475w,
+                        https://source.unsplash.com/700x900/?nature,water 700w,
+                        https://source.unsplash.com/1000x500/?nature,water 1000w"
+                        sizes="(max-width: 1000px) 50vw, 350px"
+                        alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="https://source.unsplash.com/1600x900/?nature,water" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="cardImage.jpg" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="cardImage.jpg" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="cardImage.jpg" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="cardImage.jpg" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="cardImage.jpg" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="cardImage.jpg" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+                <li class="service-list__item">
+                    <div class="service-list__item-mask"></div>
+                    <img class="service-list__item-image" src="cardImage.jpg" alt="">
+                    <div class="service-list__item-title">Бухгалтерское обслуживание</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>

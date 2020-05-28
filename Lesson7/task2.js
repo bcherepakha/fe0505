@@ -31,6 +31,7 @@ console.log(grade);
 console.log( 'Имя учащегося с максимальным количеством баллов: ', getLeader(grade).name );
 console.log( 'максимальный балл: ', getLeader(grade).value );
 console.log( 'средний балл: ', getAverage(grade) );
+console.log( 'средний ученик: ', getAveragePeople(grade) );
 console.log( 'учащихся с баллом ниже среднего: ', getPeopleWithMaxGrade(grade, getAverage(grade)) );
 console.log( 'winners: ', getWinners(grade) );
 
@@ -155,4 +156,22 @@ function getWinners(grade) {
             grade: grade[name]
         };
     });
+}
+
+function getAveragePeople(grade) {
+    const averageValue = getAverage(grade);
+    let diff = Infinity;
+    let avaragePeopleName;
+
+    for (const name in grade) {
+        const currentDiff = Math.abs(grade[name] - averageValue);
+
+        // console.log({name, currentDiff, diff, avaragePeopleName});
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            avaragePeopleName = name;
+        }
+    }
+
+    return {name: avaragePeopleName, value: grade[avaragePeopleName], diff};
 }

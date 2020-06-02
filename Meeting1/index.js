@@ -108,6 +108,6 @@ function Slider(roundSliders, effect = 'slide') {
     return slider;
 }
 
-const slider = Slider(true, 'fadeOut');
+const slider = Slider(true, 'fadeOut'); // LE = { slider, renders, prevSlide, nextSlide,  }
 
 console.log(slider);

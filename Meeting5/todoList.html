@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Try to create app as http://todomvc.com/">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./todoList.css">
+    <script src="addTask.js" defer></script>
+    <script src="tasks.js" defer></script>
+    <script src="taskList.js" defer></script>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <section class="todoapp">
+        <h1>todos</h1>
+        <form class="header">
+            <label class="complete-all-label">
+                <input
+                    class="complete-all"
+                    type="checkbox"
+                    name="complete"
+                    aria-label="Mark all as complete">
+                <span></span>
+            </label>
+            <input
+                class="new-todo"
+                placeholder="What needs to be done?"
+                autofocus=""
+                name="task"
+                aria-label="What needs to be done?">
+            <button class="visually-hidden" type="submit">Add</button>
+        </form>
+        <section class="main">
+            <ul class="todo-list">
+                <li>
+                    <div class="view">
+                        <input class="toggle" type="checkbox">
+                        <span>Task 1</span>
+                        <button class="destroy"></button>
+                    </div>
+                    <form>
+                        <input class="edit" value="Task 1">
+                        <button class="visually-hidden" type="submit">
+                            Изменить
+                        </button>
+                    </form>
+                </li>
+                <li class="editing">
+                    <div class="view">
+                        <input class="toggle" type="checkbox">
+                        <span>Task 2</span>
+                        <button class="destroy"></button>
+                    </div>
+                    <input class="edit" value="Task 2">
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <div class="todo-count"><strong>3</strong> items left</div>
+            <ul class="filters">
+                <li>
+                    <a class="selected" href="#/all">All</a>
+                </li>
+                <li>
+                    <a href="#/active">Active</a>
+                </li>
+                <li>
+                    <a href="#/completed">Completed</a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+</body>
+</html>

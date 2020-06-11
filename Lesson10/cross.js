@@ -1,6 +1,6 @@
 const EMTY_CELL = ' ';
 const X_CELL = 'x';
-const O_CELL = '0';
+const O_CELL = 'O';
 const USERS = ['X', 'O'];
 const CELLS = {
     [USERS[0]]: X_CELL,
@@ -10,14 +10,19 @@ const DELIMITER = ' | ';
 
 console.log( CELLS );
 
-// 0, 1, 2
-// 3, 4, 5
-// 6, 7, 8
+// 0 | 1 | 2
+// --|---|--
+// 3 | 4 | 5
+// --|---|--
+// 6 | 7 | 8
 
 class CrossGame {
     constructor() {
+        // this = {}
         this.board = new Array(9).fill(EMTY_CELL);
         this.currentUser = USERS[0];
+        // this.__proto__ = CrossGame.prototype
+        // return this;
     }
 
     step( cellNumber ) {
@@ -38,7 +43,7 @@ class CrossGame {
     }
 
     isWin() {
-
+        // homework
     }
 
     render() {

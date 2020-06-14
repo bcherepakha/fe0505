@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test task for aviasales</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="data.js"></script>
+    <script defer src="tickets.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="Logo.png" srcset="Logo.png 82w, Logo_2x.png 164w" sizes="60px" alt="Aviasales" />
+    </div>
+    <div class="content">
+        <form class="transplant">
+            <h2 class="transplant__header">
+                Количество пересадок
+            </h2>
+            <ul class="transplant__list">
+                <li class="transplant__list-item">
+                    <label class="transplant__label">
+                        <input type="checkbox" class="transplant__checkbox" name="transplant_all" checked>
+                        Все
+                    </label>
+                </li>
+                <li class="transplant__list-item">
+                    <label class="transplant__label">
+                        <input
+                            type="checkbox"
+                            class="transplant__checkbox"
+                            name="transplant_0"
+                            data-value="0"
+                            checked>
+                        Без пересадок
+                    </label>
+                </li>
+                <li class="transplant__list-item">
+                    <label class="transplant__label">
+                        <input type="checkbox" class="transplant__checkbox" name="transplant_1" data-value="1" checked>
+                        1 пересадка
+                    </label>
+                </li>
+                <li class="transplant__list-item">
+                    <label class="transplant__label">
+                        <input type="checkbox" class="transplant__checkbox" name="transplant_2" data-value="2" checked>
+                        2 пересадки
+                    </label>
+                </li>
+                <li class="transplant__list-item">
+                    <label class="transplant__label">
+                        <input type="checkbox" class="transplant__checkbox" name="transplant_3" data-value="3" checked>
+                        3 пересадки
+                    </label>
+                </li>
+            </ul>
+        </form>
+        <form class="tickets-switcher">
+            <label class="tickets-switcher__item">
+                <input
+                    class="tickets-switcher__input"
+                    type="radio"
+                    name="ticket-filtter"
+                    value="cheap"
+                    checked>
+                <span class="tickets-switcher__label">
+                    Самый дешевый
+                </span>
+            </label>
+            <label class="tickets-switcher__item">
+                <input
+                    class="tickets-switcher__input"
+                    type="radio"
+                    name="ticket-filtter"
+                    value="speed">
+                <span class="tickets-switcher__label">
+                    Самый быстрый
+                </span>
+            </label>
+        </form>
+        <ul class="tickets-list">
+            <li class="tickets-list__item">
+                <div class="ticket">
+                    <div class="ticket__price">
+                        13 400 Р
+                    </div>
+                    <div class="ticket__avia-logo">
+                        <img class="ticket__avia-logo-img" src="http://lorempixel.com/800/100" alt="" />
+                    </div>
+                    <ul class="ticket__variants">
+                        <li class="ticket__variant">
+                            <div class="ticket__variant-item">
+                                <div class="ticket__variant-item-label">
+                                    MOW – HKT
+                                </div>
+                                <div class="ticket__variant-item-value">
+                                    10:45 – 08:00
+                                </div>
+                            </div>
+                            <div class="ticket__variant-item">
+                                <div class="ticket__variant-item-label">
+                                    В пути
+                                </div>
+                                <div class="ticket__variant-item-value">
+                                    21ч 15м
+                                </div>
+                            </div>
+                            <div class="ticket__variant-item">
+                                <div class="ticket__variant-item-label">
+                                    2 пересадки
+                                </div>
+                                <div class="ticket__variant-item-value">
+                                    HKG, JNB
+                                </div>
+                            </div>
+                        </li>
+                        <li class="ticket__variant">
+                            <div class="ticket__variant-item">
+                                <div class="ticket__variant-item-label">
+                                    MOW – HKT
+                                </div>
+                                <div class="ticket__variant-item-value">
+                                    11:20 – 00:50
+                                </div>
+                            </div>
+                            <div class="ticket__variant-item">
+                                <div class="ticket__variant-item-label">
+                                    В пути
+                                </div>
+                                <div class="ticket__variant-item-value">
+                                    13ч 30м
+                                </div>
+                            </div>
+                            <div class="ticket__variant-item">
+                                <div class="ticket__variant-item-label">
+                                    1 пересадка
+                                </div>
+                                <div class="ticket__variant-item-value">
+                                    HKG
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

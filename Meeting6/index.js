@@ -42,6 +42,7 @@ function MagicFunction(...args) {
         argumentsArr = argumentsArr.concat(args);
         sum = sumArguments(sum, args);
 
+        console.log('args', args);
         console.log('argumentsArr', argumentsArr);
         console.log('sum', sum);
 

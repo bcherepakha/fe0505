@@ -1,0 +1,87 @@
+
+.crossBoard {
+    width: 450px;
+    height: 450px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.crossBoard__cell {
+    flex: 1 0 30%;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+
+    position: relative;
+}
+
+.crossBoard__cell:nth-child(3n) {
+    border-right: 0;
+}
+
+.crossBoard__cell:nth-last-child(-n+3) {
+    border-bottom: 0;
+}
+
+.crossBoard__el {
+    position: absolute;
+
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+}
+
+.x {
+    stroke: black;
+}
+
+.x-line1 {
+    stroke-dasharray: 9;
+
+    will-change: stroke-dashoffset;
+
+    animation: x-animation .3s linear 0s 1 normal forwards;
+}
+
+.x-line2 {
+    stroke-dasharray: 9;
+
+    will-change: stroke-dashoffset;
+
+    animation: x-animation .3s linear .3s 1 normal forwards;
+}
+
+.o {
+    stroke: red;
+    fill: none;
+}
+
+.o-line {
+    stroke-dasharray: 26;
+
+    will-change: stroke-dashoffset;
+
+    animation: o-animation .6s linear 0s 1 normal forwards;
+}
+
+@keyframes x-animation {
+    0%, 10% {
+        stroke-dashoffset: 9;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes o-animation {
+    0% {
+        stroke-dashoffset: 26;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

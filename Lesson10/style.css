@@ -15,7 +15,13 @@
     border-right: 1px solid;
     border-bottom: 1px solid;
 
+    cursor: pointer;
+
     position: relative;
+}
+
+.crossBoard__cell:hover {
+    background: rgba(209, 247, 250, 0.5);
 }
 
 .crossBoard__cell:nth-child(3n) {
@@ -84,4 +90,61 @@
     100% {
         stroke-dashoffset: 0;
     }
+}
+
+.confirm[hidden] {
+    display: none;
+}
+
+.confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100%;
+
+    padding: 24px 0;
+
+    background: rgba(0, 0, 0, .5);
+
+    z-index: 10;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm__board {
+    max-width: 60%;
+    min-width: 30%;
+
+    padding: 24px;
+
+    background: #fff;
+
+    box-sizing: border-box;
+    border-radius: 24px;
+}
+
+.confirm__text {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.confirm__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.confirm__action {
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.confirm__action + .confirm__action {
+    margin-left: 24px;
 }

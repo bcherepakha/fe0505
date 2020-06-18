@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="timer.js" defer></script>
     <script src="cross.js" defer></script>
+    <script src="confirm.js" defer></script>
+    <script src="user.js" defer></script>
     <script src="crossHTML.js" defer></script>
 </head>
 <body>
@@ -14,17 +16,17 @@
     <div class="crossBoard">
         <div class="crossBoard__cell">
 
-            <!-- <svg class="x crossBoard__el" viewBox="0 0 10 10">
+            <svg class="x crossBoard__el" viewBox="0 0 10 10">
                 <line class="x-line1" x1="2" y1="2" x2="8" y2="8" stroke-dashoffset="1" stroke-dasharray="9" />
                 <line class="x-line2" x1="8" y1="2" x2="2" y2="8" stroke-dashoffset="1" stroke-dasharray="9"/>
-            </svg> -->
+            </svg>
 
         </div>
         <div class="crossBoard__cell">
 
-            <!-- <svg class="o crossBoard__el" viewBox="0 0 10 10">
+            <svg class="o crossBoard__el" viewBox="0 0 10 10">
                 <circle class="o-line" cx="5" cy="5" r="4" stroke-dashoffset="1" stroke-dasharray="26"/>
-            </svg> -->
+            </svg>
 
         </div>
         <div class="crossBoard__cell"></div>
@@ -36,5 +38,43 @@
         <div class="crossBoard__cell"></div>
     </div>
 
+    <ul class="users">
+        <li class="user" data-label="X"></li>
+        <li class="user" data-label="O"></li>
+    </ul>
+
+    <template id="user">
+        <li class="user">
+            <div class="user__name"></div>
+            <div class="user__timer"></div>
+            <ul class="user__stats">
+                <li class="user__stats-item" data-stats="win">
+                    Win: <span class="user__stats-counter"></span>
+                </li>
+                <li class="user__stats-item" data-stats="loose">
+                    Loose: <span class="user__stats-counter"></span>
+                </li>
+                <li class="user__stats-item" data-stats="standoff">
+                    Standoff: <span class="user__stats-counter"></span>
+                </li>
+            </ul>
+        </li>
+    </template>
+
+    <div class="confirm" hidden>
+        <div class="confirm__board">
+            <div class="confirm__text">
+                Winner: X
+            </div>
+            <div class="confirm__actions">
+                <button class="confirm__action" data-action="startNewGame">
+                    Start new game
+                </button>
+                <button class="confirm__action" data-action="cancel">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

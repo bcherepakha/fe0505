@@ -13,35 +13,37 @@
 </head>
 <body>
 
-    <div class="crossBoard">
-        <div class="crossBoard__cell">
+    <div class="game__wrapper">
+        <div class="crossBoard">
+            <div class="crossBoard__cell">
 
-            <svg class="x crossBoard__el" viewBox="0 0 10 10">
-                <line class="x-line1" x1="2" y1="2" x2="8" y2="8" stroke-dashoffset="1" stroke-dasharray="9" />
-                <line class="x-line2" x1="8" y1="2" x2="2" y2="8" stroke-dashoffset="1" stroke-dasharray="9"/>
-            </svg>
+                <svg class="x crossBoard__el" viewBox="0 0 10 10">
+                    <line class="x-line1" x1="2" y1="2" x2="8" y2="8" stroke-dashoffset="1" stroke-dasharray="9" />
+                    <line class="x-line2" x1="8" y1="2" x2="2" y2="8" stroke-dashoffset="1" stroke-dasharray="9"/>
+                </svg>
 
+            </div>
+            <div class="crossBoard__cell">
+
+                <svg class="o crossBoard__el" viewBox="0 0 10 10">
+                    <circle class="o-line" cx="5" cy="5" r="4" stroke-dashoffset="1" stroke-dasharray="26"/>
+                </svg>
+
+            </div>
+            <div class="crossBoard__cell"></div>
+            <div class="crossBoard__cell"></div>
+            <div class="crossBoard__cell"></div>
+            <div class="crossBoard__cell"></div>
+            <div class="crossBoard__cell"></div>
+            <div class="crossBoard__cell"></div>
+            <div class="crossBoard__cell"></div>
         </div>
-        <div class="crossBoard__cell">
 
-            <svg class="o crossBoard__el" viewBox="0 0 10 10">
-                <circle class="o-line" cx="5" cy="5" r="4" stroke-dashoffset="1" stroke-dasharray="26"/>
-            </svg>
-
-        </div>
-        <div class="crossBoard__cell"></div>
-        <div class="crossBoard__cell"></div>
-        <div class="crossBoard__cell"></div>
-        <div class="crossBoard__cell"></div>
-        <div class="crossBoard__cell"></div>
-        <div class="crossBoard__cell"></div>
-        <div class="crossBoard__cell"></div>
+        <ul class="users">
+            <li class="user" data-label="X"></li>
+            <li class="user" data-label="O"></li>
+        </ul>
     </div>
-
-    <ul class="users">
-        <li class="user" data-label="X"></li>
-        <li class="user" data-label="O"></li>
-    </ul>
 
     <template id="user">
         <li class="user">

@@ -12,7 +12,6 @@ class CrossHTML extends CrossGame {
             (cellEl, idx) => cellEl
                 .addEventListener( 'click', this.cellClicked.bind(this, idx, cellEl) )
             );
-        this.reset();
         this._confirmEl = new ConfirmMessage({
             onAction: {
                 startNewGame: this.startNewGame.bind(this),
@@ -22,6 +21,8 @@ class CrossHTML extends CrossGame {
 
         this._users = users;
 
+        this.reset();
+
         if (users) {
             this._usersPlaces = document.querySelectorAll('.users .user');
             this._usersPlaces.forEach(placeEl => {
@@ -30,13 +31,15 @@ class CrossHTML extends CrossGame {
                 if (users[userLabel]) {
                     placeEl.append( users[userLabel].render() );
                 }
-            })
+            });
+            users[this.currentUser].setActive();
         }
     }
 
     startNewGame() {
         this._confirmEl.hide();
         this.reset();
+        this._users[this.currentUser].setActive();
     }
 
     cancelGame() {
@@ -51,15 +54,34 @@ class CrossHTML extends CrossGame {
     }
 
     step( cellNumber, cellEl, innerEl) {
+        const previousUser = this._users[this.currentUser];
         const canDoStep = super.step( cellNumber );
+        const currentUser = this._users[this.currentUser];
 
         if (canDoStep) {
             cellEl.append(innerEl);
 
             if (this.standoff) {
                 this._confirmEl.show('Standoff!');
+                currentUser.setInActive();
+
+                for (const userName in this._users) {
+                    this._users[userName].addStandoff();
+                }
             } else if (this.gameWin) {
-                this._confirmEl.show('Win: ' + this.currentUser);
+                this._confirmEl.show('Win: ' + currentUser.name);
+                currentUser.setInActive();
+
+                for (const userName in this._users) {
+                    if (this.currentUser === userName) {
+                        currentUser.addWin();
+                    } else {
+                        this._users[userName].addLoose();
+                    }
+                }
+            } else {
+                previousUser.setInActive();
+                currentUser.setActive();
             }
         } else if (this.standoff || this.gameWin) {
             this._confirmEl.show('Game already ended!');
@@ -69,6 +91,10 @@ class CrossHTML extends CrossGame {
     reset() {
         super.reset();
         this._cells.forEach(cellEl => cellEl.innerText = '');
+
+        for (const userName in this._users) {
+            this._users[userName].reset();
+        }
     }
 
     createO() {

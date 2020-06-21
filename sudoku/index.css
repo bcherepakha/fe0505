@@ -1,0 +1,49 @@
+.board {
+    margin: 24px auto;
+
+    font-size: 36px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    width: calc(13.5em + 8px);
+
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.board__group {
+    flex: 1 0 calc(4.5em + 2px);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.board__cell {
+    flex: 1 0 1.5em;
+    height: 1.5em;
+
+    border: 1px solid #000;
+
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+
+    color: rgb(52, 52, 52);
+}
+
+.board__cell-input {
+    width: 1.2em;
+    font-size: inherit;
+    box-sizing: border-box;
+    text-align: center;
+    border: 0;
+    color: rgb(85, 98, 146);
+}

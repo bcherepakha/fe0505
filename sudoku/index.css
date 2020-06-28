@@ -39,6 +39,10 @@
     color: rgb(52, 52, 52);
 }
 
+.board__cell--incorrect {
+    background: rgba(170, 1, 1, 0.5);
+}
+
 .board__cell-input {
     width: 1.2em;
     font-size: inherit;
@@ -46,4 +50,5 @@
     text-align: center;
     border: 0;
     color: rgb(85, 98, 146);
+    background: transparent;
 }

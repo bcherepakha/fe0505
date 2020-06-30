@@ -7,6 +7,14 @@ export class Ticket {
     this.createElement();
   }
 
+  getPrice () {
+    return this._data.price;
+  }
+
+  getMinPathDuration () {
+    return Math.min(...this._data.segments.map(s => s.duration));
+  }
+
   priceToString () {
     const {
       price
@@ -69,7 +77,9 @@ export class Ticket {
     return this._el;
   }
 
-  renderOuter () {
+  renderOuter (hidden = false) {
+    this._outerEl.hidden = hidden;
+
     return this._outerEl;
   }
 }
@@ -117,7 +127,7 @@ export class TicketSegment {
     transplantLabelEl.className = 'ticket__variant-item-label';
     transplantValueEl.className = 'ticket__variant-item-value';
 
-    transplantEl.append(durationLabelEl, durationValueEl);
+    transplantEl.append(transplantLabelEl, transplantValueEl);
     transplantLabelEl.innerText = this.getTransplantCountAsString();
     transplantValueEl.innerText = this.getTransplantsString();
 
@@ -132,6 +142,8 @@ export class TicketSegment {
     const count = this.getTransplantCount();
 
     switch (count) {
+      case 0:
+        return 'БЕЗ ПЕРЕСАДОК';
       case 1:
         return `${count} ПЕРЕСАДКА`;
       case 5:

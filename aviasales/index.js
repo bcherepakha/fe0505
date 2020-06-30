@@ -1,22 +1,42 @@
 import { getSerchKey, getTickets } from './server.js';
-import { Ticket } from './tickets.js';
+import { TicketList } from './ticketList.js';
+import { Transplants } from './transplants.js';
+import { TicketSortForm } from './ticketSortForm.js';
+// import { CustomEvents } from './events.js';
 
-const ticketsListEl = document.querySelector('.tickets-list');
+// const appEvents = new CustomEvents();
+
+// appEvents.addEventListener('change', onChange);
+
+const ticketSortForm = new TicketSortForm({
+  selector: '.tickets-switcher',
+  sortSelector: '.tickets-switcher__input'
+  // onSortChange: onSortChange
+});
+
+ticketSortForm.addEventListener('change', onSortChange);
+
+const transplantsFilter = new Transplants({
+  selector: '.transplant',
+  onChangeTransplants: onChangeTransplants
+});
+
+const ticketList = new TicketList({
+  selector: '.tickets-list'
+});
+
+onChangeTransplants();
+onSortChange();
 
 getSerchKey()
   .then(getTickets)
-  .then(function (data) {
-    console.log(data.tickets);
+  .then(({ tickets }) => ticketList.setTickets(tickets));
 
-    const tickets = data.tickets.map(ticket => new Ticket(ticket));
+function onChangeTransplants () {
+  ticketList.setFilterByTransplants(transplantsFilter.getTransplants());
+}
 
-    ticketsListEl.innerText = '';
-    // ticketsListEl.append(...tickets.map(t => t.renderOuter()));
-
-    const ticketsCollection = tickets.map(t => t.renderOuter());
-
-    ticketsCollection.forEach(ticketEl => ticketsListEl.append(ticketEl));
-
-    console.log(tickets);
-    console.log(ticketsCollection);
-  });
+function onSortChange () {
+  // appEvents.dispatch('change');
+  ticketList.setSorting(ticketSortForm.getCurrentSorting());
+}

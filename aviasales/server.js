@@ -7,7 +7,7 @@ export function getSerchKey () {
       return response.json();
     })
     .then(function onSuccess (data) {
-      console.log(data);
+      // console.log(data);
       // console.log(data.searchId);
       // console.log(text);
       // console.log(JSON.parse(text));
@@ -23,7 +23,7 @@ export function getSerchKey () {
 export function getTickets (searchId) {
   return fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`)
     .then(responce => {
-      console.log('responce', responce);
+      // console.log('responce', responce);
 
       return responce.json();
     })

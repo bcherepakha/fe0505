@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting 9</title>
+    <script src="./addAlert.js" defer type="module"></script>
+    <script src="./index.js" defer type="module"></script>
+</head>
+<body>
+
+    <form class="add-alert">
+        <fieldset class="add-alert__time">
+            <select name="hours" class="add-alert__time-input">
+                <option value="0">00</option>
+                <option value="1">01</option>
+                <option value="2">02</option>
+            </select>
+            <span class="add-alert__time-deviator">:</span>
+            <select name="minutes" class="add-alert__time-input">
+            </select>
+        </fieldset>
+        <fieldset class="add-alert__weekday">
+            <label class="add-alert__weekday-item">
+                <input name="Mo" type="checkbox" class="add-alert__weekday-item-checked">
+                <span class="add-alert__weekday-item-checked">Mo</span>
+            </label>
+            <label class="add-alert__weekday-item">
+                <input name="Tu" type="checkbox" class="add-alert__weekday-item-checked">
+                <span class="add-alert__weekday-item-checked">Tu</span>
+            </label>
+        </fieldset>
+        <div class="add-alert__actions">
+            <button class="add-alert__submit">Add alert</button>
+        </div>
+    </form>
+
+</body>
+</html>

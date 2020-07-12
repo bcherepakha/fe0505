@@ -2,7 +2,7 @@ export class List {
   constructor (props = {}) {
     this._props = props;
     this._items = props.items || [];
-    this._el = document.querySelector('.todo-list');
+    this._el = document.querySelector(this._props.selector || '.todo-list');
   }
 
   find (callback) {

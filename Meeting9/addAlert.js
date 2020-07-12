@@ -12,13 +12,33 @@ export class AddAlertForm {
 
   addAlert (event) {
     event.preventDefault();
+    const { hours, minutes } = this._time;
+    const time = [hours.value, minutes.value];
+    const days = this._days.reduce(
+      (days, input) => {
+        if (input.checked) {
+          days.push(+input.value);
+        }
+
+        return days;
+      },
+      []
+    );
+
+    if (this._props.onAdd) {
+      this._props.onAdd({ time, days });
+    }
+
+    this._formEl.reset();
   }
 
   addSelectOptions (min, max, selectEl) {
     const options = [];
 
     for (let value = min; value <= max; value++) {
-      options.push(this.createSelectOption(value, value.toString().padStart(2, '0')));
+      const valueAsString = value.toString().padStart(2, '0');
+
+      options.push(this.createSelectOption(valueAsString, valueAsString));
     }
 
     selectEl.innerText = '';
@@ -50,12 +70,13 @@ export class AddAlertForm {
     title.className = 'add-alert__weekday-item-checked';
     title.innerText = this._dayNames[dayNumber];
 
-    return el;
+    return { label: el, input };
   }
 
   initForm () {
     const selectCollection = Array.from(this._formEl.querySelectorAll('.add-alert__time-input'));
     const daysFieldSet = this._formEl.querySelector('.add-alert__weekday');
+    const dayLabels = [];
 
     this._time = {};
     this._days = [];
@@ -70,11 +91,17 @@ export class AddAlertForm {
     daysFieldSet.innerText = '';
 
     for (let dayNumber = 1; dayNumber <= 7; dayNumber++) {
-      const dayItem = this.createWeekDayItem(dayNumber % 7);
+      const { label, input } = this.createWeekDayItem(dayNumber % 7);
 
-      this._days.push(dayItem);
+      dayLabels.push(label);
+      this._days.push(input);
     }
 
-    daysFieldSet.append(...this._days);
+    this._days.sort((input1, input2) => input1.value - input2.value);
+    daysFieldSet.append(...dayLabels);
+  }
+
+  render () {
+    return this._formEl;
   }
 }

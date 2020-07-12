@@ -22,7 +22,7 @@ const taskList = new List({
   filterItems: filteredTask
 });
 
-taskList.render();
+onFilterChange();
 
 function filteredTask (task) {
   const currentFilterName = filter.getCurrentFilterName();
